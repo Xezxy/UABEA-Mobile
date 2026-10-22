@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Menu bar, seperti menu File / View / Tools pada UABEA. -->
+    <LinearLayout
+        android:id="@+id/menuBar"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="4dp"
+        android:paddingRight="8dp">
+
+        <TextView
+            android:id="@+id/menuFile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="File"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/menuView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Tampilan"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/menuTools"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Alat"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/menuHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Bantuan"
+            android:textSize="13sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/menuBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UABEA Mobile"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/menuDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!-- Nama file, seperti label "No file opened." pada UABEA. -->
+    <LinearLayout
+        android:id="@+id/fileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="7dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:text="Tidak ada file dibuka."
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fileSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="File &gt; Buka… untuk memilih bundle."
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- ComboBox file data di dalam bundle. -->
+    <LinearLayout
+        android:id="@+id/fileCombo"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/fileComboLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Berkas data"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/fileComboValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:text="—"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/fileComboArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▾"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- Tombol aksi utama, susunan mirip MainWindow UABEA. -->
+    <LinearLayout
+        android:id="@+id/buttonArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnExport"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Ekspor" />
+
+                <Button
+                    android:id="@+id/btnExportAll"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:text="Ekspor Semua" />
+
+                <Button
+                    android:id="@+id/btnRename"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:text="Ganti Nama" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnImport"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Impor" />
+
+                <Button
+                    android:id="@+id/btnImportAll"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:text="Impor Semua" />
+
+                <Button
+                    android:id="@+id/btnRemove"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:text="Hapus" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnInfo"
+            android:layout_width="76dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="4dp"
+            android:text="Info" />
+    </LinearLayout>
+
+    <!-- Kotak pencarian + filter. -->
+    <LinearLayout
+        android:id="@+id/searchArea"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/searchIcon"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_search"
+            android:contentDescription="Cari" />
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:hint="Cari nama, container, atau tipe…"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/btnClear"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="✕"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/btnFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="4dp"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Filter"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/headerDividerTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="7dp" />
+
+    <!-- Header tabel, meniru kolom DataGrid UABEA. -->
+    <LinearLayout
+        android:id="@+id/tableHeader"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/hdrName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="4dp"
+            android:text="Nama"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/hdrType"
+            android:layout_width="88dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Tipe"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/hdrSize"
+            android:layout_width="66dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:text="Ukuran"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/headerDividerBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="Belum ada file dibuka.\n\nGunakan File &gt; Buka… untuk memilih bundle."
+            android:textSize="13sp" />
+    </FrameLayout>
+
+    <!-- Status bar tipis di bagian bawah. -->
+    <LinearLayout
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="9dp"
+        android:paddingRight="9dp">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginRight="6dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:text="Siap"
+            android:textSize="10.5sp" />
+
+        <TextView
+            android:id="@+id/statusRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+// Root build script.
+// Hanya mendaftarkan Android Gradle Plugin versi 8.1.2 supaya bisa dipakai modul app.
+plugins {
+    id 'com.android.application' version '8.1.2' apply false
+}
+
+// Task bantu untuk membersihkan seluruh hasil build.
+tasks.register('cleanAll', Delete) {
+    delete project.layout.buildDirectory.get().asFile
+    subprojects.each { sub ->
+        delete sub.layout.buildDirectory.get().asFile
+    }
+}

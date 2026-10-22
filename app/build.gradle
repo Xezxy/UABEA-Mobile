@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.uabea.mobile'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.uabea.mobile'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            // APK release dibuat tanpa minify supaya kelas core tetap utuh.
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/**']
+        }
+    }
+}
+
+dependencies {
+    // Hanya dipakai untuk decompress blok LZMA di bundle Unity.
+    implementation 'org.tukaani:xz:1.9'
+}
+
+// Semua sumber memakai UTF-8 (komentar berbahasa Indonesia + karakter khusus).
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
