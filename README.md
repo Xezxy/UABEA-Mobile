@@ -107,7 +107,7 @@ pkg install openjdk-17 gradle unzip curl aapt2
 Build:
 
 ```bash
-cd ~/uabea-android
+cd ~/UABEA-Mobile
 ./build.sh
 ```
 
